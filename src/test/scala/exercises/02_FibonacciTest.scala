@@ -12,6 +12,10 @@ class FibonacciTest extends FunSuite with Matchers {
   test("fib(2)") {
     fib(2) should be (1)
   }
+
+  test("fib(3)") {
+    fib(3) should be (2)
+  }
   
   test("fib(5)") {
     fib(5) should be (5)

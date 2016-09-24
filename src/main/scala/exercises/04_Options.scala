@@ -34,7 +34,12 @@ object Options {
    * - does not exist: 					"not existing"
    */
   def roomState(rooms: Map[Int, Option[String]], room: Int): String = {
-    error("Fix me")
+    val roomStatus = rooms(room)
+    roomStatus match {
+      case None           => "empty"
+      case Some("locked") => "not available"
+      case Some(total)    => total 
+    }
   }
 
   /**
