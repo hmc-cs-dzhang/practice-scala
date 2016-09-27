@@ -29,6 +29,8 @@ class PatternMatchingExerciseTest extends FlatSpec {
     assert("first: first, second: second, rest: List(third, fourth)" == matchOnInputType(Seq("first", "second", "third", "fourth")))
     assert("Some Scala class" == matchOnInputType(10l))
     assert("A null value" == matchOnInputType(null))
+    assert("Some Scala class" == matchOnInputType(-1))
+    assert("Some Scala class" == matchOnInputType((1 to 2).toSeq))
   }
   it should "check age" in {
     assert(Some("Jack") == older(new Person("Jack", 31)))
