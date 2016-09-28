@@ -21,6 +21,8 @@ class CollectionsTest extends FlatSpec {
 
   it should "calculate sum of list" in {
     assert(15 == sumOfList(List(1, 2, 3, 4, 5)))
+    assert(0 == sumOfList(List()))
+    assert(7 == sumOfList(List(7)))
   }
 
   it should "get last element in list" in {
@@ -36,6 +38,9 @@ class CollectionsTest extends FlatSpec {
 
   it should "concat two lists" in {
     assert(List("One", "Two", "Three", "Four", "Five") == concatLists(listOfStrings, List("Four", "Five")))
+    assert(List() == concatLists(List(), List()))
+    assert(List("One", "Two", "Three") == concatLists(List(), listOfStrings))
+    assert(List("One", "Two", "Three") == concatLists(listOfStrings, List()))
   }
 
   it should "sort list of strings" in {
@@ -71,6 +76,10 @@ class CollectionsTest extends FlatSpec {
 
   it should "calc sum of same positioned elements in many lists" in {
     assert(List(12, 15, 18) == sumOfMany(List(1, 2, 3), List(4, 5, 6), List(7, 8, 9)))
+    assert(List(1, 2, 3) == sumOfMany(List(1, 2, 3)))
+    assert(List() == sumOfMany(List()))
+    assert(List(1, 2, 3) == sumOfMany(List(1, 1, 3), List(0, 1)))
+      
   }
   
    it should "rewrite imperative to functional" in {
@@ -82,7 +91,7 @@ class CollectionsTest extends FlatSpec {
     val nehal = Collections.Person(21, "Nehal", "Tambe")
     
     val result = separateTheYoungFromTheOld(List(nehal, avery1, avery2, avery3, jordan1, jordan2))
-    
+
     assert(List(List("Avery1", "Avery2", "Jordan1"), List("Avery3", "Jordan2", "Nehal")) == result)
   }
 }
