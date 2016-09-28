@@ -7,6 +7,10 @@ class PalindromeTest extends FunSuite with Matchers {
   test("") {
     Palindrome.isPalindrome("") should be (true)
   }
+
+  test("a") {
+    Palindrome.isPalindrome("a") should be (true)
+  }
   
   test("123") {
     Palindrome.isPalindrome("123") should be (true) // because we'll ignore non-alphabetic characters
